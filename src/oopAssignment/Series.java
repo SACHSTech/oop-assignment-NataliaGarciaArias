@@ -17,31 +17,29 @@ public class Series extends Media {
 
     }
 
+    //Getter and Setter Methods
     public int getSeasons(){
         return numSeasons;
     }
 
-    public int setSeasons(int numSeasons){
+    public void setSeasons(int numSeasons){
         this.numSeasons = numSeasons;
-        return numSeasons;
     }
 
     public int getEpisodes(){
         return numEpisodes;
     }
 
-    public int setEpisodes(int numEpisodes){
+    public void setEpisodes(int numEpisodes){
         this.numEpisodes = numEpisodes;
-        return numEpisodes;
     }
 
     public int getEpDuration(){
         return avgEpisodeDuration;
     }
 
-    public int setEpLength(int newDuration){
+    public void setEpLength(int newDuration){
         this.avgEpisodeDuration = newDuration;
-        return avgEpisodeDuration;
     }
 
     //Calculates estimated watch time for the series based on # of episodes and avg duration
