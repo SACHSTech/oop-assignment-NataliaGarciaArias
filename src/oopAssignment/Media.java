@@ -7,6 +7,7 @@ public class Media {
     private int releaseYear;
     private int rating;
     private boolean isFave = false;
+    private boolean isWatched = false;
 
     public Media(String title, String genre, int releaseYear, int rating){
        
@@ -61,6 +62,21 @@ public class Media {
         }
 
         return isFave;
+    }
+
+    public boolean hasWatched(){
+      
+        if (rating == 0){
+
+            isWatched = false;
+           
+            return isWatched;
+            
+        } else {
+            isWatched = true;
+           
+            return isWatched;
+        }
     }
 
     //Default void method for displaying information

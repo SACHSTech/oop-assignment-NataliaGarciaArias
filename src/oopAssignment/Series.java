@@ -58,7 +58,10 @@ public class Series extends Media {
         System.out.println("Year Released: " + super.getReleaseYear());
         System.out.println("Seasons: " + numSeasons);
         System.out.println("Estimated Duration: " + estWatchTime() + " mins");
+
+        if (hasWatched()){
         System.out.println("Rating: " + super.getRating());
+        }
 
     }
 
