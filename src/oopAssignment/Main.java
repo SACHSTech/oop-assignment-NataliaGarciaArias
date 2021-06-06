@@ -7,7 +7,15 @@ public class Main{
     public static void main(String[] args) throws IOException{
         BufferedReader key = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println("  ");
+        System.out.println(" start ----- ");
+        List myList = new List("My List");
+        Movie testMovie = new Movie("Finding Nemo", "For Kids", 2003, "Andrew Stanton", 100);
+        Series testSeries = new Series("The Office", "Comedy", 2005, 9, 201, 22);
+
+        myList.addMovie(testMovie);
+        myList.addSeries(testSeries);
+
+        myList.displayAllInfo();
     }
 
     private void displayMenu(){
