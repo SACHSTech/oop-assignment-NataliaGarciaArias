@@ -29,14 +29,28 @@ public class Movie extends Media {
         this.director = newDirector;
     }
 
+    public String formatDuration(){
+
+        int time = getDuration();
+        
+        int hours = time / 60 ;
+        int minutes = time % 60;
+
+        return + hours + " hrs " + minutes + " mins ";
+
+    }
+
     public void displayInformation(){
 
         System.out.println("Movie: " + super.getTitle());
         System.out.println("Genre: " + super.getGenre());
         System.out.println("Year Released: " + super.getReleaseYear());
         System.out.println("Director: " + getDirector());
-        System.out.println("Duration: " + getDuration() + "mins");
-        System.out.println("Rating: " + super.getRating());
+        System.out.println("Duration: " + formatDuration());
+        
+        if (hasWatched()){
+            System.out.println("Rating: " + super.getRating());
+            }
     }
 
     public String toString(){

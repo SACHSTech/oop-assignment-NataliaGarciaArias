@@ -43,11 +43,14 @@ public class Series extends Media {
     }
 
     //Calculates estimated watch time for the series based on # of episodes and avg duration
-    public int estWatchTime(){
+    public String estWatchTime(){
        
         int time = avgEpisodeDuration * numEpisodes;
 
-        return time;
+        int hours = time / 60 ;
+        int minutes = time % 60;
+
+        return + hours + " hrs " + minutes + " mins ";
     }
     
     //Displays TV Series Information
@@ -57,7 +60,7 @@ public class Series extends Media {
         System.out.println("Genre: " + super.getGenre());
         System.out.println("Year Released: " + super.getReleaseYear());
         System.out.println("Seasons: " + numSeasons);
-        System.out.println("Estimated Duration: " + estWatchTime() + " mins");
+        System.out.println("Estimated Duration: " + estWatchTime());
 
         if (hasWatched()){
         System.out.println("Rating: " + super.getRating());
