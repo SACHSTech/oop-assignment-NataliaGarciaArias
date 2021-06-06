@@ -50,6 +50,8 @@ public class List {
             Media media = it.next();
           
             System.out.println("════════════════════════════ \n");
+            System.out.println(i + 1 );
+            System.out.println("");
             media.displayInformation();
             System.out.println("\n════════════════════════════ \n");
         }

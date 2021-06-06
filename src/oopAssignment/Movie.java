@@ -5,8 +5,8 @@ public class Movie extends Media {
     private int duration;
     private String director;
 
-    public Movie(String title, String genre, int releaseYear, String director, int duration){
-        super(title, genre, releaseYear);
+    public Movie(String title, String genre, int releaseYear, int rating, String director, int duration){
+        super(title, genre, releaseYear,rating);
 
         this.director = director;
         this.duration = duration;
@@ -35,7 +35,8 @@ public class Movie extends Media {
         System.out.println("Genre: " + super.getGenre());
         System.out.println("Year Released: " + super.getReleaseYear());
         System.out.println("Director: " + getDirector());
-        System.out.println("Watch Time: " + getDuration() + "mins");
+        System.out.println("Duration: " + getDuration() + "mins");
+        System.out.println("Rating: " + super.getRating());
     }
     
 }

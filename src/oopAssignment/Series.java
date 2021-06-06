@@ -8,8 +8,8 @@ public class Series extends Media {
     private int numEpisodes;
     private int avgEpisodeDuration;
 
-    public Series(String title, String genre, int releaseYear, int numSeasons, int numEpisodes, int avgEpisodeDuration){
-        super(title, genre, releaseYear);
+    public Series(String title, String genre, int releaseYear, int rating, int numSeasons, int numEpisodes, int avgEpisodeDuration){
+        super(title, genre, releaseYear, rating);
         
         this.numSeasons = numSeasons;
         this.numEpisodes = numEpisodes;
@@ -57,7 +57,8 @@ public class Series extends Media {
         System.out.println("Genre: " + super.getGenre());
         System.out.println("Year Released: " + super.getReleaseYear());
         System.out.println("Seasons: " + numSeasons);
-        System.out.println("Estimated Watch Time: " + estWatchTime() + " mins");
+        System.out.println("Estimated Duration: " + estWatchTime() + " mins");
+        System.out.println("Rating: " + super.getRating());
 
     }
 }

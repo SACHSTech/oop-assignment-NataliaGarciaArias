@@ -5,14 +5,15 @@ public class Media {
     private String title;
     private String genre;
     private int releaseYear;
-    private int rating = 0;
+    private int rating;
     private boolean isFave = false;
 
-    public Media(String title, String genre, int releaseYear){
+    public Media(String title, String genre, int releaseYear, int rating){
        
         this.setTitle(title);
         this.setGenre(genre);
         this.setReleaseYear(releaseYear);
+        this.setRating(rating);
 
     }
 
@@ -62,8 +63,9 @@ public class Media {
         return isFave;
     }
 
+    //Default void method for displaying information
     public void displayInformation(){
-        
+
     }
 
 
