@@ -62,6 +62,10 @@ public class Media {
         return isFave;
     }
 
+    public void displayInformation(){
+        
+    }
+
 
 
 }
