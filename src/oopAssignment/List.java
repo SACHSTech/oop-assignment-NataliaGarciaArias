@@ -41,6 +41,17 @@ public class List {
         }
     }
 
+    public void displayAllInfo(){
+
+        Iterator<Media> it = mediaList.iterator();
+
+        for (int i = 0; i < mediaList.size(); i++){
+
+            Media media = it.next();
+            media.displayInformation();
+        }
+    }
+
     public void addMovie(Movie newMovie){
 
         mediaList.add(newMovie);
