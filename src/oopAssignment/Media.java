@@ -5,14 +5,14 @@ public class Media {
     private String title;
     private String genre;
     private int releaseYear;
-    private int rating;
+    private int rating = 0;
+    private boolean isFave = false;
 
-    public Media(String title, String genre, int releaseYear, int rating){
+    public Media(String title, String genre, int releaseYear){
        
         this.setTitle(title);
         this.setGenre(genre);
         this.setReleaseYear(releaseYear);
-        this.setRating(rating);
 
     }
 
@@ -47,6 +47,19 @@ public class Media {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    //Method that checks if the media is a favourite based on the rating
+
+    public boolean isFavourite(){
+
+        if (rating >= 7){
+            isFave = true;
+        } else {
+            isFave = false;
+        }
+
+        return isFave;
     }
 
 
