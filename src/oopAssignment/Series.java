@@ -45,7 +45,7 @@ public class Series extends Media {
     //Calculates estimated watch time for the series based on # of episodes and avg duration
     public int estWatchTime(){
        
-        int time = avgEpisodeDuration * numSeasons;
+        int time = avgEpisodeDuration * numEpisodes;
 
         return time;
     }
