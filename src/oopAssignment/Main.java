@@ -10,13 +10,13 @@ public class Main{
 
         System.out.println("start ----- ");
         List myList = new List("My List");
-        Movie testMovie = new Movie("Finding Nemo", "Children's Animation", 2003, 8,"Andrew Stanton", 100);
+        Movie testMovie = new Movie("Finding Nemo", "Animation", 2003, 8,"Andrew Stanton", 100);
         Series testSeries = new Series("The Office", "Comedy", 2005, 7, 9, 201, 22);
     
         myList.addMovie(testMovie);
         myList.addSeries(testSeries);
-
         
+        recommendMedia(myList);
 
        
 
@@ -66,7 +66,11 @@ public class Main{
                 currentM = myRecommendations.getMedia(j);
 
                     if (!currentM.hasWatched()){
+                        
+                        System.out.println("\n════════════════════════════ \n");
+                        System.out.println(j + 1 );
                         currentM.displayInformation();
+                        System.out.println("\n════════════════════════════ \n");
                     }
                 }
                     break;
@@ -77,7 +81,10 @@ public class Main{
                 currentM = myRecommendations.getMedia(j);
 
                     if (!currentM.hasWatched()){
+                        System.out.println("\n════════════════════════════ \n");
+                        System.out.println(j + 1 );
                         currentM.displayInformation();
+                        System.out.println("\n════════════════════════════ \n");
                     }
                 }
 
@@ -89,7 +96,10 @@ public class Main{
                 currentM = myRecommendations.getMedia(j);
 
                     if (!currentM.hasWatched()){
+                        System.out.println("\n════════════════════════════ \n");
+                        System.out.println(j + 1 );
                         currentM.displayInformation();
+                        System.out.println("\n════════════════════════════ \n");
                     }
                 }
 
@@ -101,7 +111,10 @@ public class Main{
                 currentM = myRecommendations.getMedia(j);
 
                     if (!currentM.hasWatched()){
+                        System.out.println("\n════════════════════════════ \n");
+                        System.out.println(j + 1 );
                         currentM.displayInformation();
+                        System.out.println("\n════════════════════════════ \n");
                     }
                 }
 
@@ -113,20 +126,16 @@ public class Main{
                 currentM = myRecommendations.getMedia(j);
 
                     if (!currentM.hasWatched()){
+                        System.out.println("\n════════════════════════════ \n");
+                        System.out.println(j + 1 );
                         currentM.displayInformation();
+                        System.out.println("\n════════════════════════════ \n");
                     }
                 }
 
-                    break;
-
-                default:
-
-                System.out.println("error");
-
+                    break;   
             }
         }
-
-
     }
 
     //Method Initializes Recommendations List
