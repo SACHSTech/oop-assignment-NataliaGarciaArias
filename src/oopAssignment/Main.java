@@ -8,7 +8,7 @@ public class Main{
     public static void main(String[] args) throws IOException{
         BufferedReader key = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println(" start ----- ");
+        System.out.println("start ----- ");
         List myList = new List("My List");
         Movie testMovie = new Movie("Finding Nemo", "Children's Animation", 2003, 8,"Andrew Stanton", 100);
         Series testSeries = new Series("The Office", "Comedy", 2005, 7, 9, 201, 22);
@@ -16,9 +16,9 @@ public class Main{
         myList.addMovie(testMovie);
         myList.addSeries(testSeries);
 
-        List myRecommendations = recommendations();
+        
 
-        System.out.println(myRecommendations.getMedia(3));
+       
 
        
 
@@ -44,12 +44,87 @@ public class Main{
 
     }
 
-    private void recommendMedia(List inputList){
+    private static void recommendMedia(List inputList){
 
         ArrayList<String> genres = new ArrayList<String> (inputList.getFaveGenres());
+        String current;
+        Media currentM;
+
+        List myRecommendations = recommendations();
 
         System.out.println("Since your favourite genres are..." + inputList.getFaveGenres());
         System.out.println("Here are your recommendations: ");
+
+        for (int i = 0; i < genres.size(); i++){
+            current = genres.get(i);
+
+            switch(current)
+            {
+                case "Crime":
+
+                for (int j = 0; j <= 2; j++){
+                currentM = myRecommendations.getMedia(j);
+
+                    if (!currentM.hasWatched()){
+                        currentM.displayInformation();
+                    }
+                }
+                    break;
+
+                case "Comedy":
+
+                for (int j = 3; j <= 5; j++){
+                currentM = myRecommendations.getMedia(j);
+
+                    if (!currentM.hasWatched()){
+                        currentM.displayInformation();
+                    }
+                }
+
+                    break;
+
+                case "Action":
+
+                for (int j = 6; j <= 8; j++){
+                currentM = myRecommendations.getMedia(j);
+
+                    if (!currentM.hasWatched()){
+                        currentM.displayInformation();
+                    }
+                }
+
+                    break;
+
+                case "Romance":
+
+                for (int j = 9; j <= 11; j++){
+                currentM = myRecommendations.getMedia(j);
+
+                    if (!currentM.hasWatched()){
+                        currentM.displayInformation();
+                    }
+                }
+
+                    break;
+
+                case "Animation":
+
+                for (int j = 12; j <= 14; j++){
+                currentM = myRecommendations.getMedia(j);
+
+                    if (!currentM.hasWatched()){
+                        currentM.displayInformation();
+                    }
+                }
+
+                    break;
+
+                default:
+
+                System.out.println("error");
+
+            }
+        }
 
 
     }
