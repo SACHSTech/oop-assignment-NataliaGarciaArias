@@ -2,7 +2,7 @@ package oopAssignment;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.concurrent.TimeUnit;
 
 public class Main{
     public static void main(String[] args) throws IOException{
@@ -18,10 +18,29 @@ public class Main{
         
         recommendMedia(myList);
 
+        //Welcome Page
+
+        System.out.println("███╗   ██╗ █████╗ ████████╗███████╗██╗     ██╗██╗  ██╗");
+        System.out.println("████╗  ██║██╔══██╗╚══██╔══╝██╔════╝██║     ██║╚██╗██╔╝");
+        System.out.println("██╔██╗ ██║███████║   ██║   █████╗  ██║     ██║ ╚███╔╝ ");
+        System.out.println("██║╚██╗██║██╔══██║   ██║   ██╔══╝  ██║     ██║ ██╔██╗ ");
+        System.out.println("██║ ╚████║██║  ██║   ██║   ██║     ███████╗██║██╔╝ ██╗");
+        System.out.println("╚═╝  ╚═══╝╚═╝  ╚═╝   ╚═╝   ╚═╝     ╚══════╝╚═╝╚═╝  ╚═╝");
+
+        wait(2);
        
 
        
 
+    }
+
+    //Method that adds a delay in the program operations
+    private static void wait(int seconds){
+        try {
+            TimeUnit.SECONDS.sleep(seconds);
+        } catch (InterruptedException ie) {
+            Thread.currentThread().interrupt();
+        }
     }
 
     //Method that displays menu options
