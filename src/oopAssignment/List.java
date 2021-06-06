@@ -2,6 +2,8 @@ package oopAssignment;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.HashSet;
+
 import oopAssignment.Media;
 import oopAssignment.Movie;
 import oopAssignment.Series;
@@ -55,6 +57,27 @@ public class List {
             media.displayInformation();
             System.out.println("\n════════════════════════════ \n");
         }
+    }
+
+    public HashSet<String> getFaveGenres(){
+
+        Iterator<Media> it = mediaList.iterator();
+        HashSet<String> genres = new HashSet<String>();
+
+        for (int i = 0; i < mediaList.size(); i++){
+
+            Media media = it.next();
+
+            if (media.isFavourite()){
+                genres.add(media.getGenre());
+
+            }
+        }
+        
+        // System.out.println("Favourite genres are: " + (genres));
+        return genres;
+       
+
     }
 
     public void addMovie(Movie newMovie){
