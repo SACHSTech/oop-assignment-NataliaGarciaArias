@@ -53,11 +53,11 @@ public class Series extends Media {
     //Displays TV Series Information
     public void displayInformation(){
 
-        System.out.println("Series Title: " + super.getTitle());
+        System.out.println("Series: " + super.getTitle());
         System.out.println("Genre: " + super.getGenre());
         System.out.println("Year Released: " + super.getReleaseYear());
         System.out.println("Seasons: " + numSeasons);
-        System.out.println("Estimated Watch Time: " + estWatchTime());
+        System.out.println("Estimated Watch Time: " + estWatchTime() + " mins");
 
     }
 }

@@ -48,7 +48,10 @@ public class List {
         for (int i = 0; i < mediaList.size(); i++){
 
             Media media = it.next();
+          
+            System.out.println("════════════════════════════ \n");
             media.displayInformation();
+            System.out.println("\n════════════════════════════ \n");
         }
     }
 
