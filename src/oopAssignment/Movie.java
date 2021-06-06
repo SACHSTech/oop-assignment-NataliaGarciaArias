@@ -38,5 +38,9 @@ public class Movie extends Media {
         System.out.println("Duration: " + getDuration() + "mins");
         System.out.println("Rating: " + super.getRating());
     }
+
+    public String toString(){
+        return "Movie: " + super.getTitle();
+    }
     
 }

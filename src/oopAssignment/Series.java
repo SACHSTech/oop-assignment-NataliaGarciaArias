@@ -61,4 +61,8 @@ public class Series extends Media {
         System.out.println("Rating: " + super.getRating());
 
     }
+
+    public String toString(){
+        return "Series: " + super.getTitle();
+    }
 }

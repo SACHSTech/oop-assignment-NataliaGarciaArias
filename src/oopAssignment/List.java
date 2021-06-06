@@ -31,7 +31,7 @@ public class List {
         return mediaList;
     }
 
-    public void displayTitles(){
+    public void displayAllTitles(){
 
         Iterator<Media> it = mediaList.iterator();
 
@@ -42,6 +42,14 @@ public class List {
             System.out.println("");
         }
     }
+
+    public Media getMedia(int index){
+
+       Media media = mediaList.get(index);
+       
+       return media;
+    }
+
 
     public void displayAllInfo(){
 
