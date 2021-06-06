@@ -28,5 +28,14 @@ public class Movie extends Media {
     public void setDirector(String newDirector){
         this.director = newDirector;
     }
+
+    public void displayInformation(){
+
+        System.out.println("Movie Title: " + super.getTitle());
+        System.out.println("Genre: " + super.getGenre());
+        System.out.println("Year Released: " + super.getReleaseYear());
+        System.out.println("Director: " + getDirector());
+        System.out.println("Duration: " + getDuration());
+    }
     
 }
