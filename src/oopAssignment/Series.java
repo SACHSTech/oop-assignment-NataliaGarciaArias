@@ -6,10 +6,12 @@ import oopAssignment.Movie;
 
 public class Series extends Media {
 
+    //instance variables
     private int numSeasons;
     private int numEpisodes;
     private int avgEpisodeDuration;
 
+    //Constructor
     public Series(String title, String genre, int releaseYear, int rating, int numSeasons, int numEpisodes, int avgEpisodeDuration){
         super(title, genre, releaseYear, rating);
         
@@ -70,6 +72,7 @@ public class Series extends Media {
 
     }
 
+    //Default to string method
     public String toString(){
         return "Series: " + super.getTitle();
     }

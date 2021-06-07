@@ -62,20 +62,23 @@ public class Main{
             userchoice = Integer.parseInt(key.readLine());
 
             switch (userchoice){
-                
+
+                //Displays favourite movies and shows (rating is equal or above 7)
                 case 1: System.out.println("Here are your favourite TV Series and Movies: ");
                         myList.displayFavourites();
                         break;
                 
+                //Displays my list
                 case 2: myList.displayAllInfo();
                         break;
 
-
+                //Displays recommendations based off user's favourite genres 
                 case 3: recommendMedia(myList, myRecommendations);
                         System.out.println("We hope you like these recommendations!");
                         System.out.println("If you watched any of these, please enter the index. If not, enter 0 ");
                         userchoice2 = Integer.parseInt(key.readLine());
 
+                        //Asks the user for the media rating given the index and adds media to watched list
                         if (userchoice2 != 0){
                             System.out.print("Rate "+ myRecommendations.getMedia(userchoice2 - 1).getTitle()+ " : ");
                           
@@ -85,6 +88,8 @@ public class Main{
                             
                         }
                         break;
+
+                //Displays all recommendations
                 case 4: myRecommendations.displayAllInfo();
                         System.out.println("If you watched any of these, please enter the index. If not, enter 0 ");
                         userchoice2 = Integer.parseInt(key.readLine());
@@ -98,14 +103,13 @@ public class Main{
                             
                         }
                         break;
-
+                
+                //Exits program if user inputs 5
                 case 5: exitNatflix = true;
                         System.out.println("Leaving Natflix...Goodbye!");
                         break;
             }
         }
-       
-
     }
 
     //Method that adds a delay in the program operations
@@ -120,7 +124,6 @@ public class Main{
     //Method that displays menu options
     private static void displayMenu(String username){
        
-       // String menuTitle = username + "'s Main Menu";
         ArrayList<String> menuOptions = new ArrayList<String>();
         menuOptions.add("View My Favourites");
         menuOptions.add("View My List");
@@ -129,7 +132,6 @@ public class Main{
         menuOptions.add("Exit Natflix");
 
         System.out.println("");
-        //System.out.println("         "+ menuTitle +"         ");
         System.out.println("---------------------------------");
         System.out.println("Choose what you would like to do:");
 
@@ -140,6 +142,8 @@ public class Main{
 
     }
 
+    //Method that takes in watched list and recommendations list and returns
+    //Recommendations based off user's favourite genres
     private static void recommendMedia(List inputList, List myRecommendations){
 
         ArrayList<String> genres = new ArrayList<String> (inputList.getFaveGenres());
@@ -150,6 +154,7 @@ public class Main{
         System.out.println("Since your favourite genres are..." + inputList.getFaveGenres());
         System.out.println("Here are your recommendations: ");
 
+        //Scan through list of favourite genres and returns recommendations
         for (int i = 0; i < genres.size(); i++){
             current = genres.get(i);
 
@@ -234,7 +239,7 @@ public class Main{
     }
 
     //Method Initializes Recommendations List
-    public static List recommendations(){
+    private static List recommendations(){
 
         List recommendList = new List("My Recommendations");
 

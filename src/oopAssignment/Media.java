@@ -64,6 +64,7 @@ public class Media {
         return isFave;
     }
 
+    //Method that checks if the movie has been watched
     public boolean hasWatched(){
       
         if (rating == 0){
@@ -83,7 +84,4 @@ public class Media {
     public void displayInformation(){
 
     }
-
-
-
 }

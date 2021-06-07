@@ -10,6 +10,7 @@ public class Movie extends Media {
     private int duration;
     private String director;
 
+    //Constructor
     public Movie(String title, String genre, int releaseYear, int rating, String director, int duration){
         super(title, genre, releaseYear,rating);
 
@@ -34,6 +35,7 @@ public class Movie extends Media {
         this.director = newDirector;
     }
 
+    //Method that formats the duration from minutes to hours and minutes
     public String formatDuration(){
 
         int time = getDuration();
@@ -45,6 +47,7 @@ public class Movie extends Media {
 
     }
 
+    //Method that displays Movie information
     public void displayInformation(){
 
         System.out.println("Movie: " + super.getTitle());
@@ -58,6 +61,7 @@ public class Movie extends Media {
             }
     }
 
+    //Default to string method
     public String toString(){
         return "Movie: " + super.getTitle();
     }
