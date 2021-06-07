@@ -21,11 +21,13 @@ public class Main{
         //java -classpath bin oopAssignment.Main
         
         List myList = new List("My List");
+        List myRecommendations = recommendations();
+
         Movie testMovie = new Movie("Finding Nemo", "Animation", 2003, 8,"Andrew Stanton", 100);
         Series testSeries = new Series("The Office", "Comedy", 2005, 7, 9, 201, 22);
     
-        myList.addMovie(testMovie);
-        myList.addSeries(testSeries);
+        myList.addMedia(testMovie);
+        myList.addMedia(testSeries);
         
        // recommendMedia(myList);
 
@@ -33,6 +35,7 @@ public class Main{
 
         String username;
         int userchoice = 0;
+        int userchoice2 = 0;
         boolean exitNatflix = false;
 
         //Welcome Page
@@ -51,17 +54,45 @@ public class Main{
         username = key.readLine();
 
         wait(2);
+        System.out.println("");
+            System.out.println("Here is your list of watched TV Series and Movies: ");
+            wait(1);
+            myList.displayAllInfo();
 
         while (!exitNatflix){
 
             displayMenu(username);
             userchoice = Integer.parseInt(key.readLine());
 
-            
-            
-            if (userchoice == 4){
-             exitNatflix = true;
-             System.out.println("Leaving Natflix...Goodbye!");
+            switch (userchoice){
+                
+                case 1: System.out.println("Here are your favourite TV Series and Movies: ");
+                        myList.displayFavourites();
+                        break;
+                
+                case 2: myList.displayAllInfo();
+                        break;
+
+
+                case 3: recommendMedia(myList, myRecommendations);
+                        System.out.println("We hope you like these recommendations!");
+                        System.out.println("If you watched any of these, please enter the index. If not, enter 0 ");
+                        userchoice2 = Integer.parseInt(key.readLine());
+
+                        if (userchoice2 != 0){
+                            System.out.print("Rate "+ myRecommendations.getMedia(userchoice2 - 1).getTitle()+ " : ");
+                          
+                            int rating = Integer.parseInt(key.readLine());
+                            myRecommendations.getMedia(userchoice2 - 1).setRating(rating);
+                            myList.addMedia(myRecommendations.getMedia(userchoice2 - 1));
+                            
+
+                        }
+                        break;
+
+                case 4: exitNatflix = true;
+                        System.out.println("Leaving Natflix...Goodbye!");
+                        break;
             }
         }
        
@@ -80,15 +111,15 @@ public class Main{
     //Method that displays menu options
     private static void displayMenu(String username){
        
-        String menuTitle = username + "'s Main Menu";
+       // String menuTitle = username + "'s Main Menu";
         ArrayList<String> menuOptions = new ArrayList<String>();
+        menuOptions.add("View My Favourites");
         menuOptions.add("View My List");
-        menuOptions.add("Edit My List");
         menuOptions.add("View My Recommendations");
         menuOptions.add("Exit Natflix");
 
         System.out.println("");
-        System.out.println("         "+ menuTitle +"         ");
+        //System.out.println("         "+ menuTitle +"         ");
         System.out.println("---------------------------------");
         System.out.println("Choose what you would like to do:");
 
@@ -99,13 +130,12 @@ public class Main{
 
     }
 
-    private static void recommendMedia(List inputList){
+    private static void recommendMedia(List inputList, List myRecommendations){
 
         ArrayList<String> genres = new ArrayList<String> (inputList.getFaveGenres());
         String current;
         Media currentM;
 
-        List myRecommendations = recommendations();
 
         System.out.println("Since your favourite genres are..." + inputList.getFaveGenres());
         System.out.println("Here are your recommendations: ");
@@ -204,18 +234,18 @@ public class Main{
         Movie irishMan = new Movie("The Irishman", "Crime", 2019, 0, "Martin Scorsese", 210);
         Series criminalMinds = new Series("Criminal Minds", "Crime", 2005, 0, 15, 324, 42);
         
-        recommendList.addMovie(knivesOut);
-        recommendList.addMovie(irishMan);
-        recommendList.addSeries(criminalMinds);
+        recommendList.addMedia(knivesOut);
+        recommendList.addMedia(irishMan);
+        recommendList.addMedia(criminalMinds);
 
         //Comedy - 3 - 5
         Movie superBad = new Movie("Superbad", "Comedy", 2007, 0, "Greg Mottola", 113);
         Movie jumpStreet = new Movie("21 Jumpstreet", "Comedy", 2012, 0, "Phil Lord", 110);
         Series brook99 = new Series("Brooklyn Nine Nine", "Comedy", 2013, 0, 7, 173, 24);
 
-        recommendList.addMovie(superBad);
-        recommendList.addMovie(jumpStreet);
-        recommendList.addSeries(brook99);
+        recommendList.addMedia(superBad);
+        recommendList.addMedia(jumpStreet);
+        recommendList.addMedia(brook99);
 
 
         //Action 6 - 8
@@ -223,9 +253,9 @@ public class Main{
         Movie nerve = new Movie("Baby Driver", "Action", 2017, 0, "Edgar Wright", 113 );
         Series umbrellaAcademy = new Series("The Umbrella Academy", "Action", 2019, 0 , 2, 20, 52);
 
-        recommendList.addMovie(avengers);
-        recommendList.addMovie(nerve);
-        recommendList.addSeries(umbrellaAcademy);
+        recommendList.addMedia(avengers);
+        recommendList.addMedia(nerve);
+        recommendList.addMedia(umbrellaAcademy);
         
 
         //Romance - 9 - 11
@@ -233,9 +263,9 @@ public class Main{
         Movie starIsBorn = new Movie ("A Star is Born", "Romance", 2018, 0, "Bradley Cooper", 134 );
         Series janeTheVirgin = new Series("Jane The Virgin", "Romance", 2014, 0, 5, 100, 40);
 
-        recommendList.addMovie(loveSimon);
-        recommendList.addMovie(starIsBorn);
-        recommendList.addSeries(janeTheVirgin);
+        recommendList.addMedia(loveSimon);
+        recommendList.addMedia(starIsBorn);
+        recommendList.addMedia(janeTheVirgin);
 
         //Animation 12 - 14
 
@@ -243,9 +273,9 @@ public class Main{
         Movie monstersUni = new Movie("Monsters University", "Animation", 2013, 0, "Dan Scanlon", 103);
         Series gravityFalls = new Series("Gravity Falls", "Animation", 2012, 0, 2, 40, 23);
 
-        recommendList.addMovie(raya);
-        recommendList.addMovie(monstersUni);
-        recommendList.addSeries(gravityFalls);
+        recommendList.addMedia(raya);
+        recommendList.addMedia(monstersUni);
+        recommendList.addMedia(gravityFalls);
 
         return recommendList;
     }
