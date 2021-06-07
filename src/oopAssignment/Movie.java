@@ -7,6 +7,7 @@ import oopAssignment.List;
 
 public class Movie extends Media {
 
+    //Instance variables
     private int duration;
     private String director;
 

@@ -11,17 +11,20 @@ import oopAssignment.List;
 
 public class Main{
     public static void main(String[] args) throws IOException{
+        //Creates object for user input
         BufferedReader key = new BufferedReader(new InputStreamReader(System.in));
 
-        
+        //Instantiate My List and My Recommendations
         List myList = new List("My List");
         List myRecommendations = recommendations();
 
+        //Instantiate Movies and Series that will be added to My List
         Movie findingNemo = new Movie("Finding Nemo", "Animation", 2003, 6,"Andrew Stanton", 100);
         Movie inception = new Movie("Inception", "Action", 2010, 10,"Christopher Nolan", 162);
-        Movie avengers = new Movie("The Avengers", "Action", 2012, 0, "Joss Whedon", 144);
+        Movie avengers = new Movie("The Avengers", "Action", 2012, 8, "Joss Whedon", 144);
         Series theOffice = new Series("The Office", "Comedy", 2005, 7, 9, 201, 22);
     
+        //Adding the Movies and Series to My List
         myList.addMedia(findingNemo);
         myList.addMedia(inception);
         myList.addMedia(avengers);
@@ -47,17 +50,23 @@ public class Main{
         System.out.println("");
         System.out.println("Your favourite media library!");
         System.out.println("");
+
+        //Prompt user to enter their name
         System.out.print("Who's watching today? Please enter your first name: ");
         username = key.readLine();
 
         wait(2);
-        System.out.println("");
-            System.out.println("Here is your list of watched TV Series and Movies: ");
-            wait(1);
-            myList.displayAllInfo();
 
+        //Display a preview of My List (only prints titles)
+        System.out.println("");
+        System.out.println("Here is a list preview of your TV Series and Movies: ");
+        wait(1);
+        myList.displayAllTitles();
+
+        //Display Menu if user does not chose to exit program
         while (!exitNatflix){
 
+            //Display menu, ask for choice
             displayMenu(username);
             userchoice = Integer.parseInt(key.readLine());
 
@@ -80,7 +89,7 @@ public class Main{
 
                         //Asks the user for the media rating given the index and adds media to watched list
                         if (userchoice2 != 0){
-                            System.out.print("Rate "+ myRecommendations.getMedia(userchoice2 - 1).getTitle()+ " : ");
+                            System.out.print("Rate "+ myRecommendations.getMedia(userchoice2 - 1).getTitle()+ " from 1-10 : ");
                           
                             int rating = Integer.parseInt(key.readLine());
                             myRecommendations.getMedia(userchoice2 - 1).setRating(rating);
@@ -95,7 +104,7 @@ public class Main{
                         userchoice2 = Integer.parseInt(key.readLine());
 
                         if (userchoice2 != 0){
-                            System.out.print("Rate "+ myRecommendations.getMedia(userchoice2 - 1).getTitle()+ " : ");
+                            System.out.print("Rate "+ myRecommendations.getMedia(userchoice2 - 1).getTitle()+ " from 1-10 : ");
                         
                             int rating = Integer.parseInt(key.readLine());
                             myRecommendations.getMedia(userchoice2 - 1).setRating(rating);
@@ -126,7 +135,7 @@ public class Main{
        
         ArrayList<String> menuOptions = new ArrayList<String>();
         menuOptions.add("View My Favourites");
-        menuOptions.add("View My List");
+        menuOptions.add("View List In Detail");
         menuOptions.add("Show me recommendations based off my favourite genres");
         menuOptions.add("I want to expand my taste, show me all recommendations!");
         menuOptions.add("Exit Natflix");
@@ -146,11 +155,15 @@ public class Main{
     //Recommendations based off user's favourite genres
     private static void recommendMedia(List inputList, List myRecommendations){
 
+        //Instantiates genre list, containing user's favourite genres
         ArrayList<String> genres = new ArrayList<String> (inputList.getFaveGenres());
+        
+        // Helping current variables for cycling through lists
         String current;
         Media currentM;
 
 
+        //Displays user's favourite genres
         System.out.println("Since your favourite genres are..." + inputList.getFaveGenres());
         System.out.println("Here are your recommendations: ");
 

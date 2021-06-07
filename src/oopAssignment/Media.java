@@ -2,6 +2,7 @@ package oopAssignment;
 
 public class Media {
     
+    //Instance variables
     private String title;
     private String genre;
     private int releaseYear;
@@ -9,6 +10,7 @@ public class Media {
     private boolean isFave = false;
     private boolean isWatched = false;
 
+    //Constructor
     public Media(String title, String genre, int releaseYear, int rating){
        
         this.setTitle(title);
