@@ -13,23 +13,20 @@ public class Main{
     public static void main(String[] args) throws IOException{
         BufferedReader key = new BufferedReader(new InputStreamReader(System.in));
 
-        //javac -d bin src/oopAssignment/Main.java
-        //javac -d bin src/oopAssignment/Media.java
-        //javac -d bin src/oopAssignment/Movie.java
-        //javac -d bin src/oopAssignment/Series.java
-        //javac -d bin src/oopAssignment/List.java
-        //java -classpath bin oopAssignment.Main
         
         List myList = new List("My List");
         List myRecommendations = recommendations();
 
-        Movie testMovie = new Movie("Finding Nemo", "Animation", 2003, 8,"Andrew Stanton", 100);
-        Series testSeries = new Series("The Office", "Comedy", 2005, 7, 9, 201, 22);
+        Movie findingNemo = new Movie("Finding Nemo", "Animation", 2003, 6,"Andrew Stanton", 100);
+        Movie inception = new Movie("Inception", "Action", 2010, 10,"Christopher Nolan", 162);
+        Movie avengers = new Movie("The Avengers", "Action", 2012, 0, "Joss Whedon", 144);
+        Series theOffice = new Series("The Office", "Comedy", 2005, 7, 9, 201, 22);
     
-        myList.addMedia(testMovie);
-        myList.addMedia(testSeries);
+        myList.addMedia(findingNemo);
+        myList.addMedia(inception);
+        myList.addMedia(avengers);
+        myList.addMedia(theOffice);
         
-       // recommendMedia(myList);
 
         //Initiate variables
 
@@ -86,11 +83,23 @@ public class Main{
                             myRecommendations.getMedia(userchoice2 - 1).setRating(rating);
                             myList.addMedia(myRecommendations.getMedia(userchoice2 - 1));
                             
+                        }
+                        break;
+                case 4: myRecommendations.displayAllInfo();
+                        System.out.println("If you watched any of these, please enter the index. If not, enter 0 ");
+                        userchoice2 = Integer.parseInt(key.readLine());
 
+                        if (userchoice2 != 0){
+                            System.out.print("Rate "+ myRecommendations.getMedia(userchoice2 - 1).getTitle()+ " : ");
+                        
+                            int rating = Integer.parseInt(key.readLine());
+                            myRecommendations.getMedia(userchoice2 - 1).setRating(rating);
+                            myList.addMedia(myRecommendations.getMedia(userchoice2 - 1));
+                            
                         }
                         break;
 
-                case 4: exitNatflix = true;
+                case 5: exitNatflix = true;
                         System.out.println("Leaving Natflix...Goodbye!");
                         break;
             }
@@ -115,7 +124,8 @@ public class Main{
         ArrayList<String> menuOptions = new ArrayList<String>();
         menuOptions.add("View My Favourites");
         menuOptions.add("View My List");
-        menuOptions.add("View My Recommendations");
+        menuOptions.add("Show me recommendations based off my favourite genres");
+        menuOptions.add("I want to expand my taste, show me all recommendations!");
         menuOptions.add("Exit Natflix");
 
         System.out.println("");
@@ -249,11 +259,11 @@ public class Main{
 
 
         //Action 6 - 8
-        Movie avengers = new Movie("The Avengers", "Action", 2012, 0, "Joss Whedon", 144);
+        Movie avengersEndgame = new Movie("Avengers: Endgame", "Action", 2019, 0, "Joe & Anthony Russo", 182);
         Movie nerve = new Movie("Baby Driver", "Action", 2017, 0, "Edgar Wright", 113 );
         Series umbrellaAcademy = new Series("The Umbrella Academy", "Action", 2019, 0 , 2, 20, 52);
 
-        recommendList.addMedia(avengers);
+        recommendList.addMedia(avengersEndgame);
         recommendList.addMedia(nerve);
         recommendList.addMedia(umbrellaAcademy);
         
