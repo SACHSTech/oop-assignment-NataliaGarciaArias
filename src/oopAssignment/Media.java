@@ -71,7 +71,7 @@ public class Media {
             isWatched = false;
            
             return isWatched;
-            
+
         } else {
             isWatched = true;
            

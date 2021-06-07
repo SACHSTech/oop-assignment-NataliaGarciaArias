@@ -1,14 +1,25 @@
 package oopAssignment;
 
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
+import oopAssignment.Media;
+import oopAssignment.Movie;
+import oopAssignment.Series;
+import oopAssignment.List;
 
 public class Main{
     public static void main(String[] args) throws IOException{
         BufferedReader key = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println("start ----- ");
+        //javac -d bin src/oopAssignment/Main.java
+        //javac -d bin src/oopAssignment/Media.java
+        //javac -d bin src/oopAssignment/Movie.java
+        //javac -d bin src/oopAssignment/Series.java
+        //javac -d bin src/oopAssignment/List.java
+        //java -classpath bin oopAssignment.Main
+        
         List myList = new List("My List");
         Movie testMovie = new Movie("Finding Nemo", "Animation", 2003, 8,"Andrew Stanton", 100);
         Series testSeries = new Series("The Office", "Comedy", 2005, 7, 9, 201, 22);
@@ -16,20 +27,43 @@ public class Main{
         myList.addMovie(testMovie);
         myList.addSeries(testSeries);
         
-        recommendMedia(myList);
+       // recommendMedia(myList);
+
+        //Initiate variables
+
+        String username;
+        int userchoice = 0;
+        boolean exitNatflix = false;
 
         //Welcome Page
 
+        System.out.println("");
         System.out.println("███╗   ██╗ █████╗ ████████╗███████╗██╗     ██╗██╗  ██╗");
         System.out.println("████╗  ██║██╔══██╗╚══██╔══╝██╔════╝██║     ██║╚██╗██╔╝");
         System.out.println("██╔██╗ ██║███████║   ██║   █████╗  ██║     ██║ ╚███╔╝ ");
         System.out.println("██║╚██╗██║██╔══██║   ██║   ██╔══╝  ██║     ██║ ██╔██╗ ");
         System.out.println("██║ ╚████║██║  ██║   ██║   ██║     ███████╗██║██╔╝ ██╗");
         System.out.println("╚═╝  ╚═══╝╚═╝  ╚═╝   ╚═╝   ╚═╝     ╚══════╝╚═╝╚═╝  ╚═╝");
+        System.out.println("");
+        System.out.println("Your favourite media library!");
+        System.out.println("");
+        System.out.print("Who's watching today? Please enter your first name: ");
+        username = key.readLine();
 
         wait(2);
-       
 
+        while (!exitNatflix){
+
+            displayMenu(username);
+            userchoice = Integer.parseInt(key.readLine());
+
+            
+            
+            if (userchoice == 4){
+             exitNatflix = true;
+             System.out.println("Leaving Natflix...Goodbye!");
+            }
+        }
        
 
     }
@@ -44,17 +78,19 @@ public class Main{
     }
 
     //Method that displays menu options
-    private void displayMenu(){
+    private static void displayMenu(String username){
        
-        String menuTitle = "Menu Title";
+        String menuTitle = username + "'s Main Menu";
         ArrayList<String> menuOptions = new ArrayList<String>();
         menuOptions.add("View My List");
         menuOptions.add("Edit My List");
         menuOptions.add("View My Recommendations");
+        menuOptions.add("Exit Natflix");
 
-
-        System.out.println("   "+ menuTitle +"    ");
-        System.out.println("--------------------");
+        System.out.println("");
+        System.out.println("         "+ menuTitle +"         ");
+        System.out.println("---------------------------------");
+        System.out.println("Choose what you would like to do:");
 
          for (int i = 0; i < menuOptions.size(); i++){
              
