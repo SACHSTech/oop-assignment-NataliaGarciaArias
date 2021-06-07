@@ -88,20 +88,42 @@ public class List {
 
     }
 
-    public void addMovie(Movie newMovie){
+    public void displayFavourites(){
+       
+        Iterator<Media> it = mediaList.iterator();
+
+        for (int i = 0; i < mediaList.size(); i++){
+
+            Media media = it.next();
+           
+            if (media.isFavourite()){
+                
+                System.out.println("\n════════════════════════════ \n");
+                media.displayInformation();
+                System.out.println("\n════════════════════════════ \n");
+            }
+        }
+    }
+
+    public void addMedia(Movie newMovie){
 
         mediaList.add(newMovie);
     }
 
-    public void deleteMovie(Movie toDelete){
+    public void addMedia(Media newMedia){
+
+        mediaList.add(newMedia);
+    }
+
+    public void deleteMedia(Movie toDelete){
         mediaList.remove(toDelete);
     }
 
-    public void addSeries(Series newSeries){
+    public void addMedia(Series newSeries){
         mediaList.add(newSeries);
     }
 
-    public void deleteSeries(Series toDelete){
+    public void deleteMedia(Series toDelete){
         mediaList.remove(toDelete);
     }
 
